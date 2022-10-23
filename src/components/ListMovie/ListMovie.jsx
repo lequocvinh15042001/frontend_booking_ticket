@@ -18,7 +18,7 @@ export default function ListMovie({ danhSachPhim }) {
                 aria-controls="pills-home"
                 aria-selected="true"
               >
-                Is Showing
+                Showing
               </a>
             </li>
             <li className="nav-item">

@@ -3,7 +3,7 @@ import Slider from 'react-slick';
 import './Sliders.scss';
 import sliderData from '../../assets/sliderData';
 import { StyledSlider } from './Slider';
-
+import poster from "../../assets/bg.jpg"
 const Sliders = () => {
   if (!Array.isArray(sliderData) || sliderData.length <= 0) {
     return null;
@@ -47,7 +47,7 @@ const Sliders = () => {
     centerMode: true,
     focusOnSelect: true,
     infinite: true,
-    centerPadding: '15px',
+    centerPadding: '20px',
     slidesToShow: 3,
     slidesToScroll: 1,
     autoplay: true,
@@ -59,6 +59,11 @@ const Sliders = () => {
   };
 
   return (
+    <div>
+      <img
+          className="poster"
+          src={poster}
+      ></img>
     <StyledSlider {...settings}>
       {sliderData?.map((slide, index) => {
         return (
@@ -69,6 +74,7 @@ const Sliders = () => {
         );
       })}
     </StyledSlider>
+    </div>
   );
 };
 

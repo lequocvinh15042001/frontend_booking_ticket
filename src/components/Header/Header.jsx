@@ -11,6 +11,7 @@ import MenuItem from "@material-ui/core/MenuItem";
 import MenuList from "@material-ui/core/MenuList";
 import { dangXuatAction } from "../../redux/actions/QuanLyNguoiDungActions";
 import { userLogin } from "../../config/setting";
+import Logo from "./../../assets/LeafSVG";
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 
@@ -135,11 +136,12 @@ export default function Header(props) {
       <nav className="navbar navbar-expand-lg navbar-light bg-dark">
         <div className="navbar-brand">
           <NavLink to="/" style={{ textDecoration: "none" }}>
-            <img
+            {/* <img
               src="https://i0.wp.com/thegamehaus.com/wp-content/uploads/2020/05/Volibear_Emote.png?resize=256%2C256&ssl=1"
               alt="logo"
-            />
-            <span className="text-logo">AP Movie</span>
+            /> */}
+            <Logo fillColor="white"></Logo>
+            <span className="text-logo">Golden Ticket Movie</span>
           </NavLink>
         </div>
         <div className="header__mobile">
@@ -161,7 +163,6 @@ export default function Header(props) {
             <li className="nav-item active">
               <NavLink className="nav-link" to="/allmovie">
                 <div className="d-flex flex-column">
-                  <i className="mb-2 fa fa-film"></i>
                   <span>Phim</span>
                 </div>
               </NavLink>
@@ -169,7 +170,6 @@ export default function Header(props) {
             <li className="nav-item">
               <NavLink className="nav-link" to="/clustercinema">
                 <div className="d-flex flex-column">
-                  <i className="mb-2 fa fa-project-diagram" />
                   <span>Cụm Rạp</span>
                 </div>
               </NavLink>
@@ -177,7 +177,6 @@ export default function Header(props) {
             <li className="nav-item">
               <NavLink className="nav-link" to="/news">
                 <div className="d-flex flex-column">
-                  <i className="mb-2 fa fa-newspaper" />
                   <span>Tin Tức</span>
                 </div>
               </NavLink>
@@ -185,7 +184,6 @@ export default function Header(props) {
             <li className="nav-item">
               <NavLink className="nav-link" to="/#forMobile">
                 <div className="d-flex flex-column">
-                  <i className="mb-2 fa fa-mobile" />
                   <span>Ứng dụng</span>
                 </div>
               </NavLink>
