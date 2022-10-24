@@ -13,6 +13,9 @@ import SearchBar from "../components/SearchBar/SearchBar";
 import ListPage from '../components/SearchBar/ListPage';
 import { getPosts } from "../components/SearchBar/api/axios";
 import Footer from "../components/Footer/Footer";
+import FormBooking from "../components/FormBooking/FormBooking";
+import News from "./News";
+import NewsComponent from "../components/NewsComponent/NewsComponent";
 
 
 export default function Home() {
@@ -61,14 +64,17 @@ export default function Home() {
           {/* <ListPage searchResults={searchResults} /> */}
 
           <Sliders/>
+
+          <FormBooking/>
+
           <ListMovie danhSachPhim={danhSachPhim} />
 
           {/* <ScrollAnimation animateIn="fadeIn">
             <ShowTimeHome />
           </ScrollAnimation> */}
-          {/* <ScrollAnimation animateIn="zoomIn">
-            <News />
-          </ScrollAnimation> */}
+          <ScrollAnimation animateIn="zoomIn">
+            <NewsComponent />
+          </ScrollAnimation>
           {/* <AppMobile /> */}
 
           <Footer/>

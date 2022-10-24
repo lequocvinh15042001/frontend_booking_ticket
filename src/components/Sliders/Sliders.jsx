@@ -3,7 +3,7 @@ import Slider from 'react-slick';
 import './Sliders.scss';
 import sliderData from '../../assets/sliderData';
 import { StyledSlider } from './Slider';
-import poster from "../../assets/bg.jpg"
+import poster from "../../assets/banner.jpg"
 const Sliders = () => {
   if (!Array.isArray(sliderData) || sliderData.length <= 0) {
     return null;

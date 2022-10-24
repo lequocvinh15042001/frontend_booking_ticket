@@ -181,13 +181,6 @@ export default function Header(props) {
                 </div>
               </NavLink>
             </li>
-            <li className="nav-item">
-              <NavLink className="nav-link" to="/#forMobile">
-                <div className="d-flex flex-column">
-                  <span>Application</span>
-                </div>
-              </NavLink>
-            </li>
           </ul>
           <div className="header__login">{renderLogin()}</div>
         </div>

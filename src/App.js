@@ -8,6 +8,9 @@ import DetailMovie from './pages/DetailMovie';
 import AllMovie from './pages/AllMovie';
 import { HomeTemplate } from "./templates/HomeTemplate/HomeTemplate";
 import Profile from './pages/Profile';
+import News from './pages/News';
+import DetailNews from './pages/DetailNews';
+import ClusterCinema from './pages/ClusterCinema';
 
 function App() {
   return (
@@ -42,18 +45,16 @@ function App() {
 
             <Route exact path="/register" element={<Register/>} />
 
-
-
           <Route exact path="/profile" element={<Profile/>} />
 
-          {/* <Route exact path="/clustercinema" element={<ClusterCinema/>} />
+          {/* <Route exact path="/clustercinema" element={<ClusterCinema/>} /> */}
           <Route exact path="/news" element={<News/>} />
           <Route
             exact
-            path="/detailnews/:matintuc"
+            path="/detailnews/:slug"
             element={<DetailNews/>}
           />
-          <Route exact path="/dashboard" element={<Dashboard/>} />
+          {/* <Route exact path="/dashboard" element={<Dashboard/>} />
           <Route
             exact
             path="/usermanagement"
