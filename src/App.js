@@ -11,6 +11,7 @@ import Profile from './pages/Profile';
 import News from './pages/News';
 import DetailNews from './pages/DetailNews';
 import ClusterCinema from './pages/ClusterCinema';
+import UserManagement from './pages/UserManagement';
 
 function App() {
   return (
@@ -54,13 +55,13 @@ function App() {
             path="/detailnews/:slug"
             element={<DetailNews/>}
           />
-          {/* <Route exact path="/dashboard" element={<Dashboard/>} />
+          {/* <Route exact path="/dashboard" element={<Dashboard/>} /> */}
           <Route
             exact
             path="/usermanagement"
             element={<UserManagement/>}
           />
-          <Route
+          {/* <Route
             exact
             path="/moviemanagement"
             element={<MovieManagement/>}

@@ -3,7 +3,7 @@ import { token, groupID, user, movie } from "../config/setting";
 export class QuanLyAdmin {
   layDanhSachNguoiDung = () => {
     return axios({
-      url: `${user}/QuanLyNguoiDung/LayDanhSachNguoiDung?MaNhom=${groupID}`,
+      url: `${user}`,
       method: "GET",
     });
   };
@@ -28,15 +28,15 @@ export class QuanLyAdmin {
       },
     });
   };
-  // xoaNguoiDung = (taiKhoan) => {
-  //   return axios({
-  //     url: `${user}/QuanLyNguoiDung/XoaNguoiDung?TaiKhoan=${taiKhoan}`,
-  //     method: "DELETE",
-  //     headers: {
-  //       Authorization: "Bearer " + localStorage.getItem(token),
-  //     },
-  //   });
-  // };
+  xoaNguoiDung = (taiKhoan) => {
+    return axios({
+      url: `${user}/${taiKhoan}`,
+      method: "DELETE",
+      headers: {
+        Authorization: "Bearer " + localStorage.getItem(token),
+      },
+    });
+  };
   // themPhim = (form_data) => {
   //   return axios({
   //     url: `${movie}/QuanLyPhim/ThemPhimUploadHinh`,

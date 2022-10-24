@@ -38,8 +38,8 @@ export default function ModalTrailer({ trailer, maPhim, open, handleToggle }) {
             <div className="d-flex justify-content-center align-items-center">
               <iframe
                 title={maPhim}
-                width="700px"
-                height="300px"
+                width="900px"
+                height="500px"
                 //height={`${window.innerHeight}px`}
                 src={`https://www.youtube.com/embed/${video_id}`}
                 frameBorder={0}
@@ -49,10 +49,12 @@ export default function ModalTrailer({ trailer, maPhim, open, handleToggle }) {
             <div
               style={{
                 fontSize: 50,
+                borderRadius:"50%",
+                border:".1rem solid white",
                 color:"white",
-                fontWeight: "bold",
-                top: 2,
-                right: 10,
+                fontWeight: "normal",
+                top: -50,
+                right: -50,
                 cursor: "pointer",
                 width: 50,
                 height: 50,

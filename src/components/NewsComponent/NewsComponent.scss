@@ -2,7 +2,7 @@
 
 .news__header {
   margin: spacing(6) spacing(0);
-  background: url("https://cdn0.tnwcdn.com/wp-content/blogs.dir/1/files/2018/02/IPHONE-796x431.png");
+  background: url(../../assets/posterBG.jpg);
   background-repeat: no-repeat;
   background-size: cover;
   // margin: spacing(1) spacing(-1.5);
@@ -21,7 +21,8 @@
     align-items: center;
     .title__description {
       text-transform: uppercase;
-
+      font-size: larger;
+      font-weight: 800;
       color: $color-white-0;
       @include Text($fs-1 + 2, $fw-sbold);
     }
@@ -31,28 +32,26 @@
   .news__content {
     .news__left {
       .news__title {
-        color: $color-blue;
+        color: $color-red-0;
         position: relative;
-        font-style: italic;
         font-weight: bold;
         text-transform: uppercase;
         opacity: 0.9;
-        &::after {
-          content: "";
-          position: absolute;
-          bottom: -5px;
-          left: 5px;
-          width: 100px;
-          height: 4px;
-          background-color: $color-blue;
-        }
+        // &::after {
+        //   position: absolute;
+        //   bottom: -5px;
+        //   left: 5px;
+        //   width: 100px;
+        //   height: 4px;
+        //   background-color: $color-red-0;
+        // }
       }
       .news__items {
         box-shadow: 0 10px 40px 0 rgba(16, 36, 94, 0.2);
         display: flex;
         transition: box-shadow 300ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
         background-color: rgb(45, 45, 45);
-        border-bottom: 1px solid $color-blue;
+        border-bottom: 1px solid $color-red-0;
         padding: spacing(1) spacing(1);
         margin: spacing(2) spacing(0);
         border-radius: 5px;
@@ -63,8 +62,7 @@
           opacity: 0.7;
         }
         &:hover .items__text .items__text-title .items__text-link {
-          color: $color-blue;
-          text-decoration: underline;
+          color: $color-red-0;
         }
         &:first-of-type {
           display: flex;
@@ -79,7 +77,7 @@
             }
             img {
               width: 100%;
-              height: 450px;
+              height: 50%;
               @include responsive_mobile {
                 height: 280px;
               }
@@ -113,7 +111,7 @@
           }
           .items__text-title {
             .items__text-link {
-              color: $color-gray-3;
+              color: $color-white-0;
               transition: linear 0.2s;
               @include responsive_mobile {
                 @include Text($fs-2, $fw-bold);
@@ -127,7 +125,7 @@
             }
           }
           .items__text-description {
-            color: $color-gray-2;
+            color: $color-white-0;
             display: -webkit-box;
             -webkit-line-clamp: 3;
             -webkit-box-orient: vertical;
@@ -160,28 +158,27 @@
     }
     .news__right {
       .news__title {
-        color: $color-blue;
+        color: $color-red-0;
         position: relative;
-        font-style: italic;
-        text-transform: uppercase;
         font-weight: bold;
+        text-transform: uppercase;
         opacity: 0.9;
-        &::after {
-          content: "";
-          position: absolute;
-          bottom: -5px;
-          left: 5px;
-          width: 100px;
-          height: 4px;
-          background-color: $color-blue;
-        }
+        // &::after {
+        //   content: "";
+        //   position: absolute;
+        //   bottom: -5px;
+        //   left: 5px;
+        //   width: 100px;
+        //   height: 4px;
+        //   background-color: $color-red-0;
+        // }
       }
       .news__items {
         box-shadow: 0 10px 40px 0 rgba(16, 36, 94, 0.2);
         display: flex;
         transition: box-shadow 300ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
         background-color: rgb(45, 45, 45);
-        border-bottom: 1px solid $color-blue;
+        border-bottom: 1px solid $color-red-0;
         flex-direction: column;
         padding: spacing(1) spacing(1);
         margin: spacing(2) spacing(0);
@@ -190,8 +187,7 @@
           opacity: 0.7;
         }
         &:hover .items__text .items__text-title .items__text-link {
-          color: $color-blue;
-          text-decoration: underline;
+          color: $color-red-0;
         }
         .items__img {
           img {
@@ -215,7 +211,7 @@
           padding: spacing(1) spacing(0);
           .items__text-title {
             .items__text-link {
-              color: $color-gray-3;
+              color: $color-white-0;
               transition: linear 0.2s;
             }
           }
@@ -229,16 +225,16 @@
     padding: spacing(3) 0;
     margin-bottom: spacing(2);
     .btn__readmore {
-      border: 1px solid $color-gray-2;
-      color: $color-gray-3;
+      border: 1px solid $color-red-0;
+      color: $color-white-0;
       padding: spacing(0.5) spacing(2);
       background: none;
       box-shadow: none;
       transition: 0.2s ease-in-out;
       border-radius: 3px;
       &:hover {
-        border: 1px solid $color-blue;
-        background-color: $color-blue;
+        border: 1px solid $color-red-0;
+        background-color: $color-red-0;
         color: $color-white-0;
       }
     }

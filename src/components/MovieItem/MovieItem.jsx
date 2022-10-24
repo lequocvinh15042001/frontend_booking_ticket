@@ -26,32 +26,47 @@ export default function MovieItem({ phimItem }) {
               <p className="description">{phimItem.shortDescription}</p>
             </div>
           </div>
+          
           <LazyLoad throttle={200}>
             <CSSTransition
-              key="1"
-              transitionName="fade"
-              transitionAppear
-              transitionAppearTimeout={1000}
-              transitionEnter={false}
-              transitionLeave={false}
+              key="0"
+              transitionname="fade"
+              transitionappear="true"
+              transitionappeartimeout={1000}
+              transitionenter={false}
+              transitionleave={false}
             >
+              
               <div
                 className="content-right"
                 style={{ backgroundImage: `url(${phimItem.largeImageURL})` }}
               ></div>
             </CSSTransition>
           </LazyLoad>
+                        {/* <img
+                className="content-right"
+                style={{ backgroundImage: `url(${phimItem.largeImageURL})` }}
+              ></img> */}
+                                        {/* <div
+        className="play-trailer"
+        style={{ cursor: "pointer" }}
+        onClick={handleToggle}
+      >
+        <i className="play-icon fa fa-play" />
+      </div> */}
         </div>
       </NavLink>
-      <div className="play-trailer" onClick={handleToggle}>
-        <i className="play-icon fa fa-play"></i>
-      </div>
-      <ModalTrailer
+
+        <ModalTrailer
         trailer={phimItem.trailerURL}
         maPhim={phimItem.id}
         open={open}
         handleToggle={handleToggle}
       />
+        <div className="play-trailer" onClick={handleToggle}>
+          <i className="play-icon fa fa-play"></i>
+        </div>
     </div>
+    
   );
 }

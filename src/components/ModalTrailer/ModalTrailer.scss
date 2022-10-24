@@ -2,16 +2,16 @@
   .modal-dialog {
     .modal-content {
       .close__btn {
-        position: absolute;
+        position: relative;
         width: 40px;
         height: 40px;
         color:white;
         border: 1px solid #fff;
         border-radius: 50%;
-        right: -20px;
-        top: -20px;
+        right: -10px;
+        top: -10px;
         text-align: center;
-        line-height: 40px;
+        line-height: 30px;
         cursor: pointer;
         transition: 0.5s all;
         &:hover {
