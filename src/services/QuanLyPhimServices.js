@@ -8,18 +8,18 @@ export class QuanLyPhimServices {
       method: "GET",
     });
   };
-  // layThongTinPhim = (maPhim) => {
-  //   return axios({
-  //     url: `${movie}/QuanLyRap/LayThongTinLichChieuPhim?MaPhim=${maPhim}`,
-  //     method: "GET",
-  //   });
-  // };
-  // layHeThongRap = () => {
-  //   return axios({
-  //     url: `${movie}/QuanLyRap/LayThongTinHeThongRap`,
-  //     method: "GET",
-  //   });
-  // };
+  layThongTinPhim = (maPhim) => {
+    return axios({
+      url: `${movie}/details?movieId=${maPhim}`,
+      method: "GET",
+    });
+  };
+  layHeThongRap = () => {
+    return axios({
+      url: `${movie}/QuanLyRap/LayThongTinHeThongRap`,
+      method: "GET",
+    });
+  };
 
   // layCumRapTheoHeThong = () => {
   //   return axios({

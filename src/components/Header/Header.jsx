@@ -127,7 +127,7 @@ export default function Header(props) {
     return (
       <NavLink className="login__link" to="/login">
         <img src="https://i.ibb.co/PCjW83Y/avt.png" alt="user" />
-        <span className="login__text">Đăng Nhập</span>
+        <span className="login__text">Login</span>
       </NavLink>
     );
   };
@@ -141,7 +141,7 @@ export default function Header(props) {
               alt="logo"
             /> */}
             <Logo fillColor="white"></Logo>
-            <span className="text-logo">Golden Ticket Movie</span>
+            <span className="text-logo">Golden Ticket Movie Booking</span>
           </NavLink>
         </div>
         <div className="header__mobile">
@@ -163,28 +163,28 @@ export default function Header(props) {
             <li className="nav-item active">
               <NavLink className="nav-link" to="/allmovie">
                 <div className="d-flex flex-column">
-                  <span>Phim</span>
+                  <span>All Movies</span>
                 </div>
               </NavLink>
             </li>
             <li className="nav-item">
               <NavLink className="nav-link" to="/clustercinema">
                 <div className="d-flex flex-column">
-                  <span>Cụm Rạp</span>
+                  <span>My Theaters</span>
                 </div>
               </NavLink>
             </li>
             <li className="nav-item">
               <NavLink className="nav-link" to="/news">
                 <div className="d-flex flex-column">
-                  <span>Tin Tức</span>
+                  <span>News and Reviews</span>
                 </div>
               </NavLink>
             </li>
             <li className="nav-item">
               <NavLink className="nav-link" to="/#forMobile">
                 <div className="d-flex flex-column">
-                  <span>Ứng dụng</span>
+                  <span>Application</span>
                 </div>
               </NavLink>
             </li>

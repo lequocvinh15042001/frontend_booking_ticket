@@ -1,0 +1,102 @@
+@import "../connect";
+@import url("https://fonts.googleapis.com/css2?family=Metal+Mania&display=swap");
+
+.search {
+    width: 50%;
+    height: 6%;
+    margin-left: 25%;
+    border-radius: 2em;
+    position: fixed;
+    margin-top: 5rem;
+    overflow: hidden;
+    font-size: 1rem;
+    display: flex;
+
+   
+    //flex-flow: row nowrap;
+    @include responsive_mobile--stiny {
+      width: 80%;
+    }
+    @include responsive_mobile--tiny {
+      width: 80%;
+      height: 2%;
+    }
+    @include responsive_mobile {
+      margin-left: 2rem;
+      width: 80%;
+      height: 5%;
+      margin-top: 7rem;
+    }
+    @include responsive_tablet {
+      width: 80%;
+      height: 2%;
+    }
+    @include responsive_laptop--mini {
+      width: 80%;
+      margin-left: 6rem;
+      height: 3%;
+      font-size: 1rem;
+    }
+  }
+  
+  .search:focus-within {
+    box-shadow: 2px 2px 5px #000;
+  }
+  
+  .search__button,
+  .search__input {
+    background-color: $color-white-0;
+    border: none;
+    outline: none;
+    color: $color-red-0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  }
+  
+  .search__input {
+    padding: 1em;
+    width: 100%;
+  }
+  
+  .search__button {
+    font-size: 2rem;
+    padding-right: 0.5em;
+    padding-left: 1rem;
+    color: rgb(251, 0, 0);
+    display: grid;
+    place-content: center;
+
+      @include responsive_mobile {
+        padding-right: 0.5rem;
+        padding-left: 0.5rem;
+        font-size: 1rem;
+      }
+
+      @include responsive_laptop--mini {
+        padding-right: 1rem;
+        padding-left: 1rem;
+        font-size: 1rem;
+      }
+  }
+  
+  // @media (min-width: 576px) {
+  //   .search {
+  //     font-size: 1.5rem;
+  //   }
+  
+  //   .search__button {
+  //     font-size: 1rem;
+  //   }
+  // }
+  
+  // @media (min-width: 800px) {
+  //   .search {
+  //     width: 40%;
+  //     font-size: 2rem;
+  //     position: fixed;
+  //   }
+  
+  //   .search__button {
+  //     padding-right: 0.5em;
+  //     font-size: 2rem;
+  //   }
+  // }

@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import "../Footer/Footer.scss";
+import Logo from "../../assets/LeafSVG";
 export default class Footer extends Component {
   render() {
     return (
@@ -8,7 +9,7 @@ export default class Footer extends Component {
           <div className="footer__above">
             <div className="above__row row">
               <div className="above__item col-2 tix-info">
-                <p className="above__title">AP Movie</p>
+                <p className="above__title">GOLDEN TICKET MOVIE BOOKING</p>
                 <ul className="above__list">
                   <li className="list__item">
                     <a className="list__link" href="/#">
@@ -27,18 +28,18 @@ export default class Footer extends Component {
                 <ul className="above__list">
                   <li className="list__item">
                     <a className="list__link" href="/#">
-                      Thoả thuận sử dụng
+                      Usage Agreement
                     </a>
                   </li>
                   <li className="list__item">
                     <a className="list__link" href="/#">
-                      Chính sách bảo mật
+                      Privacy Policy
                     </a>
                   </li>
                 </ul>
               </div>
               <div className="above__item img__col col-4 tix-coop">
-                <p className="above__title">ĐỐI TÁC</p>
+                <p className="above__title">PARTNER</p>
                 <ul className="img__list">
                   <li className="img__item">
                     <a className="img__link" href="/#">
@@ -206,7 +207,7 @@ export default class Footer extends Component {
                 <p className="above__title">MOBILE APP</p>
                 <ul className="logo__list">
                   <li className="logo__item">
-                    <a className="logo__link" href="/#">
+                    <a className="logo__link" href="https://www.apple.com/app-store/">
                       <img
                         src="https://i.ibb.co/Zm8vZgX/apple-logo.png"
                         alt="hinhanh"
@@ -214,7 +215,7 @@ export default class Footer extends Component {
                     </a>
                   </li>
                   <li className="logo__item">
-                    <a className="logo__link" href="/#">
+                    <a className="logo__link" href="https://play.google.com/store/games">
                       <img
                         src="https://i.ibb.co/m6YfCrT/android-logo.png"
                         alt="hinhanh"
@@ -227,7 +228,7 @@ export default class Footer extends Component {
                 <p className="above__title">SOCIAL</p>
                 <ul className="logo__list">
                   <li className="logo__item">
-                    <a className="logo__link" href="/#">
+                    <a className="logo__link" href="https://www.facebook.com/vinhlq.it">
                       <img
                         className="img__social"
                         src="https://i.ibb.co/9H50pyY/facebook-logo.png"
@@ -252,23 +253,35 @@ export default class Footer extends Component {
           <div className="footer__below">
             <div className="below__row justify-content-center align-items-center row">
               <div className="below__left col-md-3 col-xs-12 col-sm-12">
-                <img
-                  src="https://i0.wp.com/thegamehaus.com/wp-content/uploads/2020/05/Volibear_Emote.png?resize=256%2C256&ssl=1"
-                  alt="hello"
-                />
-                <span className="text-logo">AP Movie</span>
+                <Logo fillColor={"white"}/>
+                <span className="text-logo">Golden Ticket Movie Booking</span>
               </div>
               <div className="below__middle col-md-7 col-sm-12 col-xs-12">
                 <div className="middle__title">
-                  AP Movie – DỰ ÁN ĐẶT VÉ XEM PHIM
+                  Golden Ticket Movie Booking – TIỂU LUẬN CHUYÊN NGÀNH
+                  <br/>
+                  Nhóm tác giả:
+                  <br/>
+                  <a href="https://www.facebook.com/vinhlq.it">
+                    Lê Quốc Vinh
+                  </a>
+                  <br/>
+                  <a href="https://www.facebook.com/minhphuong1807">
+                    Trương Minh Phương
+                  </a>
                 </div>
                 <span>
-                  <span>Số Điện Thoại (Hotline): 1900 000 222</span>
+                  <span>Số Điện Thoại (Hotline): 03766 212 99</span>
                   <br />
                   <span>
                     Email:
+                    <br/>
                     <a className="middle__link" href="/#">
-                      support@info.vn
+                      vinhlq.it1541@gmail.com
+                    </a>
+                    <br/>
+                    <a className="middle__link" href="/#">
+                      19110269@student.hcmute.edu.vn
                     </a>
                   </span>
                 </span>

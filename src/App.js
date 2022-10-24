@@ -4,6 +4,10 @@ import ScrollToTop from './config/ScrollToTop';
 import Login from './pages/Login';
 import Register from './pages/Register';
 import Home from './pages/Home';
+import DetailMovie from './pages/DetailMovie';
+import AllMovie from './pages/AllMovie';
+import { HomeTemplate } from "./templates/HomeTemplate/HomeTemplate";
+import Profile from './pages/Profile';
 
 function App() {
   return (
@@ -11,23 +15,38 @@ function App() {
        <BrowserRouter>
         <ScrollToTop />
         <Routes>
-          <Route exact path="/" element={<Home/>} />
-          <Route exact path="/home" element={<Home/>} />
-         {/*  <Route exact path="/allmovie" element={<AllMovie/>} />
-          <Route
-            exact
-            path="/moviedetail/:maphim"
-            element={<DetailMovie/>}
-          />
-          <Route
+
+            <Route path="/" element={<Home/>} />
+
+            <Route exact path="/home" element={<Home/>} />
+
+            <Route exact path="/allmovie" element={<AllMovie/>} />
+
+
+            <Route
+              exact
+              path="/moviedetail/:slug"
+              element={<DetailMovie/>}
+            />
+
+
+
+          {/*  <Route
             exact
             path="/booking/:maLichChieu"
             element={<BookingTicket/>}
           /> */}
-          <Route exact path="/login" element={<Login/>} />
-          <Route exact path="/register" element={<Register/>} />
-          {/* <Route exact path="/profile" element={<Profile/>} />
-          <Route exact path="/clustercinema" element={<ClusterCinema/>} />
+
+            <Route exact path="/login" element={<Login/>} />
+
+
+            <Route exact path="/register" element={<Register/>} />
+
+
+
+          <Route exact path="/profile" element={<Profile/>} />
+
+          {/* <Route exact path="/clustercinema" element={<ClusterCinema/>} />
           <Route exact path="/news" element={<News/>} />
           <Route
             exact

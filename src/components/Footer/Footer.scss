@@ -1,7 +1,7 @@
 @import "../connect";
 footer {
   padding: spacing(0) spacing(15) spacing(2);
-  background-color: $color-black-2;
+  background-color: rgba(13, 13, 13, 0.8);
   @include responsive_mobile {
     padding: spacing(0) spacing(3) spacing(2);
   }
@@ -189,8 +189,11 @@ footer {
             }
           }
           .text-logo {
-            color: $color-blue;
-            font-family: "Metal Mania", cursive;
+            color: $color-red-0;
+            margin-left: 5px;
+            font-size: medium;
+            font-weight: 700;
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
           }
         }
         .below__middle {
