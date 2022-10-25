@@ -89,14 +89,14 @@ export default function NewsComponent() {
         </div>
         <div className="news__container container">
           <div className="news__content row">
-            <div className="news__left col-md-9 col-sm-12">
+            <div className="news__left col-md-12 col-sm-12">
               <h3 className="news__title">Reviews</h3>
               {renderTinTuc()}
             </div>
-            <div className="news__right col-md-3 col-sm-12">
+            {/* <div className="news__right col-md-3 col-sm-12">
               <h3 className="news__title">Hot News</h3>
               {renderTinTucHot()}
-            </div>
+            </div> */}
           </div>
           <div className="readMore">
             <button className="btn__readmore">See More</button>

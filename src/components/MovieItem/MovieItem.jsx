@@ -63,9 +63,9 @@ export default function MovieItem({ phimItem }) {
         open={open}
         handleToggle={handleToggle}
       />
-        <div className="play-trailer" onClick={handleToggle}>
+        {/* <div className="play-trailer" onClick={handleToggle}>
           <i className="play-icon fa fa-play"></i>
-        </div>
+        </div> */}
     </div>
     
   );
