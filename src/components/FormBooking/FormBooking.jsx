@@ -91,6 +91,23 @@ export default function DialogSelect() {
                 <MenuItem value={30}>Cinema 3</MenuItem>
               </Select>
             </FormControl>
+            <FormControl sx={{ m: 1, minWidth: 120, width:"100%" }}>
+              <InputLabel id="demo-dialog-select-label">Cinema</InputLabel>
+              <Select
+                labelId="demo-dialog-select-label"
+                id="demo-dialog-select"
+                value={age}
+                onChange={handleChange}
+                input={<OutlinedInput label="Age" />}
+              >
+                <MenuItem value="">
+                  <em>None</em>
+                </MenuItem>
+                <MenuItem value={10}>Cinema 1</MenuItem>
+                <MenuItem value={20}>Cinema 2</MenuItem>
+                <MenuItem value={30}>Cinema 3</MenuItem>
+              </Select>
+            </FormControl>
           </Box>
         </DialogContent>
         <DialogActions>

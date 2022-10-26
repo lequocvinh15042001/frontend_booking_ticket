@@ -5,7 +5,9 @@ import { useDispatch } from "react-redux";
 import { userLogin, token } from "../../config/setting";
 import { qlyNguoiDung } from "../../services/QuanLyNguoiDungServices";
 import { dangNhapAction } from "../../redux/actions/QuanLyNguoiDungActions";
+import useToggleValue from './../../hooks/useToggleValue';
 import swal from "sweetalert";
+import IconEyeToggle from "../Icons/IconEyeToggle";
 const Login = (props) => {
   let { navigator } = props;
   const navigate = useNavigate();
@@ -57,6 +59,8 @@ const Login = (props) => {
         });
       });
   };
+  const { value: showPassword, handleToggleValue: handleTogglePassword } =
+  useToggleValue(false);
   return (
     <section className="backgroundBodyUser">
       <div className="container-fluid">
@@ -80,17 +84,22 @@ const Login = (props) => {
                   placeholder="Username or Email"
                   onChange={handleChangeInput}
                 />
-                <span className="text-danger">{user.errors.taiKhoan}</span>
+                <span className="text-danger">{user.errors.username}</span>
               </div>
               <div className="form-group">
                 <input
                   className="input"
                   name="password"
-                  type="password"
+                  //type="password"
+                  type={`${showPassword ? "text" : "password"}`}
                   placeholder="Password"
                   onChange={handleChangeInput}
                 />
-                <span className="text-danger">{user.errors.matKhau}</span>
+                <IconEyeToggle
+                    open={showPassword}
+                    onClick={handleTogglePassword}
+                ></IconEyeToggle>
+                <span className="text-danger">{user.errors.password}</span>
               </div>
               <div className="form-group">
                 <button className="btnLogin" type="submit">

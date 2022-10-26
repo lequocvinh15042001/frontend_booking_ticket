@@ -55,7 +55,7 @@ const Sliders = () => {
     autoplaySpeed: 2000,
     pauseOnHover: true,
     nextArrow: <GalleryNextArrow />,
-    prevArrow: <GalleryPrevArrow />
+    prevArrow: <GalleryPrevArrow />,
   };
 
   return (

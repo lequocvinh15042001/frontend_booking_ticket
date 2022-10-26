@@ -26,14 +26,11 @@ function App() {
 
             <Route exact path="/allmovie" element={<AllMovie/>} />
 
-
             <Route
               exact
               path="/moviedetail/:slug"
               element={<DetailMovie/>}
             />
-
-
 
           {/*  <Route
             exact
@@ -42,7 +39,6 @@ function App() {
           /> */}
 
             <Route exact path="/login" element={<Login/>} />
-
 
             <Route exact path="/register" element={<Register/>} />
 

@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { NavLink, useNavigate } from "react-router-dom";
 import "../Register/Register.scss";
 import { qlyNguoiDung } from "../../services/QuanLyNguoiDungServices";
+// import useToggleValue from './../../hooks/useToggleValue';
 //import { groupID } from "../../config/setting";
 import swal from "sweetalert";
 
@@ -92,6 +93,9 @@ export default class Register extends Component {
   };
 
   render() {
+    // const { value: showPassword, handleToggleValue: handleTogglePassword } =
+    // useToggleValue(false);
+    
     return (
       <section className="backgroundBody">
         <div className="container-fluid">
@@ -119,12 +123,17 @@ export default class Register extends Component {
                     className="input"
                     name="password"
                     type="password"
+                    //type={`${showPassword ? "text" : "password"}`}
                     placeholder="Password"
                     onChange={this.handleChangeInput}
                   />
                   <span className="text-danger">
                     {this.state.errors.password}
                   </span>
+                  {/* <IconEyeToggle
+                    open={showPassword}
+                    onClick={handleTogglePassword}
+                ></IconEyeToggle> */}
                 </div>
                 <div className="form-group">
                   <input
