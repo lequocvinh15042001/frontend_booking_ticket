@@ -5,22 +5,24 @@ import { qlyNguoiDung } from "../../services/QuanLyNguoiDungServices";
 // import useToggleValue from './../../hooks/useToggleValue';
 //import { groupID } from "../../config/setting";
 import swal from "sweetalert";
-
+import { register } from "../../actions/userActions";
+// const navigate = useNavigate();
+// const dispatch = useDispatch();
 export default class Register extends Component {
   state = {
     values: {
+      name: "",
+      username: "",
       email: "",
-      fullname: "",
-      password: "",
-      username:"",
+      password:"",
       // maLoaiNguoiDung: "KhachHang",
       // maNhom: groupID,
     },
     errors: {
+      name: "",
+      username: "",
       email: "",
-      fullname: "",
-      password: "",
-      username:"",
+      password:"",
     },
   };
   handleChangeInput = (event) => {
@@ -90,6 +92,7 @@ export default class Register extends Component {
           button: "OK",
         });
       });
+    //dispatch(register(values))
   };
 
   render() {
@@ -138,12 +141,12 @@ export default class Register extends Component {
                 <div className="form-group">
                   <input
                     className="input"
-                    name="fullname"
+                    name="name"
                     type="text"
                     placeholder="Full name"
                     onChange={this.handleChangeInput}
                   />
-                  <span className="text-danger">{this.state.errors.fullname}</span>
+                  <span className="text-danger">{this.state.errors.name}</span>
                 </div>
                 <div className="form-group">
                   <input

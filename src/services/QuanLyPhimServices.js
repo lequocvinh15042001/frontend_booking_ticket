@@ -16,17 +16,17 @@ export class QuanLyPhimServices {
   };
   layHeThongRap = () => {
     return axios({
-      url: `${movie}/QuanLyRap/LayThongTinHeThongRap`,
+      url: `https://movie0706.cybersoft.edu.vn/api/QuanLyRap/LayThongTinHeThongRap`,
       method: "GET",
     });
   };
 
-  // layCumRapTheoHeThong = () => {
-  //   return axios({
-  //     url: `${movie}/QuanLyRap/LayThongTinLichChieuHeThongRap?maNhom=${groupID}`,
-  //     method: "GET",
-  //   });
-  // };
+  layCumRapTheoHeThong = () => {
+    return axios({
+      url: `https://movie0706.cybersoft.edu.vn/api/QuanLyRap/LayThongTinLichChieuHeThongRap?maNhom=GP09`,
+      method: "GET",
+    });
+  };
 
   // layThongTinCumRapTheoHeThong = (maHeThongRap) => {
   //   return axios({
@@ -35,12 +35,12 @@ export class QuanLyPhimServices {
   //   });
   // };
 
-  // layThongTinPhongVe = (maLichChieu) => {
-  //   return axios({
-  //     url: `${movie}/QuanLyDatVe/LayDanhSachPhongVe?MaLichChieu=${maLichChieu}`,
-  //     method: "GET",
-  //   });
-  // };
+  layThongTinPhongVe = (maLichChieu) => {
+    return axios({
+      url: `${movie}/QuanLyDatVe/LayDanhSachPhongVe?MaLichChieu=${maLichChieu}`,
+      method: "GET",
+    });
+  };
   layTinTuc = () => {
     return axios({
       url: "https://5e9829e75eabe7001681bbfb.mockapi.io/news",

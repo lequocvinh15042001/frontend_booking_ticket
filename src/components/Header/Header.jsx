@@ -13,6 +13,7 @@ import { dangXuatAction } from "../../redux/actions/QuanLyNguoiDungActions";
 import { userLogin } from "../../config/setting";
 import Logo from "./../../assets/LeafSVG";
 import 'bootstrap/dist/css/bootstrap.min.css';
+import { logout } from '../../actions/userActions';
 
 
 export default function Header(props) {
@@ -37,19 +38,32 @@ export default function Header(props) {
       setOpen(false);
     }
   }
-  const taiKhoan = useSelector(
-    (state) => state.QuanLyNguoiDungReducer.taiKhoan
-  );
+  // const userInfo = useSelector(
+  //   (state) => state.QuanLyNguoiDungReducer.userInfo
+  // );
+  const userLogin = useSelector((state) => state.userLogin.userInfo)
+  console.log(userLogin);
+
+  const userAmin = useSelector((state) => state.userLogin.userInfo.roles[0])
+  console.log(userAmin);
 
   const dispatch = useDispatch();
 
-  const LogOut = () => {
-    dispatch(dangXuatAction());
-  };
+  // const LogOut = () => {
+  //   dispatch(dangXuatAction());
+  // };
+
+  const logoutHandler = () => {
+    dispatch(logout())
+  }
   const renderMenuControl = () => {
-    if (
-      JSON.parse(localStorage.getItem(userLogin)).maLoaiNguoiDung === "QuanTri"
-    ) {
+    // console.log(JSON.parse(localStorage.getItem(userLogin)).roles[0] === "ROLE_ADMIN");
+    // if (
+    //   JSON.parse(localStorage.getItem(userLogin)).roles[0].role === "ROLE_ADMIN"
+    // ) {
+      if (
+        userLogin.roles[0] === "ROLE_ADMIN"
+      ) {
       return (
         <MenuItem onClick={handleClose}>
           <NavLink
@@ -66,7 +80,7 @@ export default function Header(props) {
     }
   };
   const renderLogin = () => {
-    if (taiKhoan) {
+    if (userLogin) {
       return (
         <Fragment>
           <div
@@ -78,7 +92,7 @@ export default function Header(props) {
             style={{ cursor: "pointer" }}
           >
             <img src="https://i.ibb.co/PCjW83Y/avt.png" alt="user" />
-            <span className="login__text">{taiKhoan}</span>
+            <span className="login__text">{userLogin.username}</span>
           </div>
           <Popper
             open={open}
@@ -112,7 +126,7 @@ export default function Header(props) {
                           Profile
                         </NavLink>
                       </MenuItem>
-                      <MenuItem onClick={LogOut}>
+                      <MenuItem onClick={logoutHandler}>
                         <i className="fa fa-sign-out-alt mr-1"></i>Logout
                       </MenuItem>
                     </MenuList>

@@ -31,7 +31,7 @@ const movieDetail =
 const DetailMovie = () => {
   const { slug } = useParams();
   console.log("slug:  ",slug);
-  let [phim, setPhim] = useState([]);
+  let [phim, setPhim] = useState();
   const [loading, $loading] = useState(true);
   const maPhim = slug;
   console.log("Mã phim lấy được: ", maPhim);
@@ -46,17 +46,17 @@ const DetailMovie = () => {
     [maPhim]
   );
 
-  console.log("Chi tiết phim giả: ", movieDetail);
+  console.log("Chi tiết phim lấy được: ", phim);
   //nào xong API get details phim rồi thì thay movieDetail = phim
   return (
     <Fragment>
-      <Header/>
+      {/* <Header/> */}
       {loading ? (
         <SpinnerLoading />
       ) : (
         <>
-          <MovieInfo phimItem={movieDetail} />
-          <ShowTime phim={movieDetail} maPhim={maPhim} />
+          <MovieInfo phimItem={phim} />
+          <ShowTime phim={phim} maPhim={maPhim} />
         </>
       )}
     </Fragment>

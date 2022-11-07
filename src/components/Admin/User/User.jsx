@@ -4,20 +4,31 @@ import ModalUser from "../ModalUser/ModalUser";
 import EditModal from "../EditUserModal/EditUserModal";
 import { qLyAdminService } from "../../../services/QuanLyAdminService";
 import swal from "sweetalert";
+import { useDispatch, useSelector } from "react-redux";
+import { listUsers } from "../../../actions/userActions";
+
 export default function User() {
   let [listNguoiDung, setListNguoiDung] = useState([]);
+  
 
+  const {loading, error, users} = useSelector((state)=>state.userList);
+  console.log(users);
+
+  const dispatch = useDispatch();
   useEffect(() => {
-    qLyAdminService
-      .layDanhSachNguoiDung()
-      .then((res) => {
-        setListNguoiDung(res.data);
-      })
-      .catch((err) => {
-        console.log(err.response.data);
-      });
-  }, []);
+    // qLyAdminService
+    //   .layDanhSachNguoiDung()
+    //   .then((res) => {
+    //     setListNguoiDung(res.data);
+    //   })
+    //   .catch((err) => {
+    //     console.log(err.response.data);
+    //   });
+    dispatch(listUsers(users))
+    setListNguoiDung(users)
+  }, [dispatch]);
 console.log("Danh sách user lấy được từ API", listNguoiDung);
+
   const renderDanhSachNguoiDung = () => {
     return danhSachNguoiDung?.map((user, index) => {
       return (
@@ -31,7 +42,7 @@ console.log("Danh sách user lấy được từ API", listNguoiDung);
           <td style={{ display: "flex", justifyContent: "space-between" }}>
             <div className="edit-action">
               <i
-                className="fa fa-user-edit"
+                className="bi bi-pencil"
                 data-toggle="modal"
                 data-target={`#d1${user.username}`}
               ></i>
@@ -103,10 +114,11 @@ console.log("Danh sách user lấy được từ API", listNguoiDung);
     });
     setDanhSachNguoiDung(results);
   }, [searchTerm, listNguoiDung]);
+  
   return (
     <Fragment>
       <div className="title">
-        <h2>Danh sách người dùng</h2>
+        <span>Danh sách người dùng</span>
         <button className="btnAdd" data-toggle="modal" data-target="#UserModal">
           <i className="fa fa-plus"></i>
         </button>
@@ -131,7 +143,7 @@ console.log("Danh sách user lấy được từ API", listNguoiDung);
         </div>
       </div>
       <div className="table-responsive-sm">
-        <table className="table table-sm table-hover table-bordered">
+        <table className="table table-sm table-hover table-bordered table-light">
           <thead className="thead-dark">
             <tr>
               <th scope="col">No.</th>

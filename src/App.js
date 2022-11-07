@@ -4,6 +4,7 @@ import ScrollToTop from './config/ScrollToTop';
 import Login from './pages/Login';
 import Register from './pages/Register';
 import Home from './pages/Home';
+import Home2 from './pages/Home2';
 import DetailMovie from './pages/DetailMovie';
 import AllMovie from './pages/AllMovie';
 import { HomeTemplate } from "./templates/HomeTemplate/HomeTemplate";
@@ -12,6 +13,8 @@ import News from './pages/News';
 import DetailNews from './pages/DetailNews';
 import ClusterCinema from './pages/ClusterCinema';
 import UserManagement from './pages/UserManagement';
+import UserListScreen from './pages/UserListScreen';
+import BookingTicket from './pages/BookingTicket';
 
 function App() {
   return (
@@ -23,6 +26,7 @@ function App() {
             <Route path="/" element={<Home/>} />
 
             <Route exact path="/home" element={<Home/>} />
+            {/* <Route exact path="/home2" element={<Home2/>} /> */}
 
             <Route exact path="/allmovie" element={<AllMovie/>} />
 
@@ -32,11 +36,11 @@ function App() {
               element={<DetailMovie/>}
             />
 
-          {/*  <Route
+           <Route
             exact
-            path="/booking/:maLichChieu"
+            path="/booking/:slug"
             element={<BookingTicket/>}
-          /> */}
+          />
 
             <Route exact path="/login" element={<Login/>} />
 
@@ -44,7 +48,7 @@ function App() {
 
           <Route exact path="/profile" element={<Profile/>} />
 
-          {/* <Route exact path="/clustercinema" element={<ClusterCinema/>} /> */}
+          <Route exact path="/clustercinema" element={<ClusterCinema/>} />
           <Route exact path="/news" element={<News/>} />
           <Route
             exact
@@ -72,6 +76,8 @@ function App() {
             path="/newsmanagement"
             element={<NewsManagement/>}
           /> */}
+
+        <Route path='/admin/userlist' element={<UserListScreen/>} />
         </Routes>
       </BrowserRouter>
     </div>

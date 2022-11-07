@@ -6,21 +6,21 @@ import swal from "sweetalert";
 export default class ModalUser extends Component {
   state = {
     values: {
-      hoTen: "",
-      taiKhoan: "",
-      matKhau: "",
+      fullname: "",
+      username: "",
+      password: "",
       email: "",
-      soDT: "",
-      maLoaiNguoiDung: "",
-      maNhom: groupID,
+      // soDT: "",
+      // maLoaiNguoiDung: "",
+      // maNhom: groupID,
     },
     errors: {
-      hoTen: "",
-      taiKhoan: "",
-      matKhau: "",
+      fullname: "",
+      username: "",
+      password: "",
       email: "",
-      soDT: "",
-      maLoaiNguoiDung: "",
+      // soDT: "",
+      // maLoaiNguoiDung: "",
     },
   };
   handleChangeInput = (event) => {
@@ -118,36 +118,36 @@ export default class ModalUser extends Component {
                 <div className="textb">
                   <input
                     type="text"
-                    name="taiKhoan"
+                    name="username"
                     onChange={this.handleChangeInput}
                     required
                   />
-                  <div className="placeholder">Tài khoản</div>
+                  <div className="placeholder">Username</div>
                   <span className="text-danger">
-                    {this.state.errors.taiKhoan}
+                    {this.state.errors.username}
                   </span>
                 </div>
                 <div className="textb">
                   <input
                     type="password"
-                    name="matKhau"
+                    name="password"
                     onChange={this.handleChangeInput}
                     required
                   />
-                  <div className="placeholder">Mật khẩu</div>
+                  <div className="placeholder">Password</div>
                   <span className="text-danger">
-                    {this.state.errors.matKhau}
+                    {this.state.errors.password}
                   </span>
                 </div>
                 <div className="textb">
                   <input
                     type="text"
-                    name="hoTen"
+                    name="fullname"
                     onChange={this.handleChangeInput}
                     required
                   />
-                  <div className="placeholder">Họ tên</div>
-                  <span className="text-danger">{this.state.errors.hoTen}</span>
+                  <div className="placeholder">Fullname</div>
+                  <span className="text-danger">{this.state.errors.fullname}</span>
                 </div>
                 <div className="textb">
                   <input
@@ -159,7 +159,7 @@ export default class ModalUser extends Component {
                   <div className="placeholder">Email</div>
                   <span className="text-danger">{this.state.errors.email}</span>
                 </div>
-                <div className="textb">
+                {/* <div className="textb">
                   <input
                     type="text"
                     name="soDT"
@@ -182,7 +182,7 @@ export default class ModalUser extends Component {
                   <span className="text-danger">
                     {this.state.errors.maLoaiNguoiDung}
                   </span>
-                </div>
+                </div> */}
                 <button className="btn fas fa-arrow-right" />
               </form>
             </div>

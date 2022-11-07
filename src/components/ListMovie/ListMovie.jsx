@@ -1,6 +1,7 @@
 import React from "react";
 import "../ListMovie/ListMovie.scss";
 import MovieCarousel from "../MovieCarousel/MovieCarousel";
+import BookTicket from "../BookTicket/BookTicket";
 
 export default function ListMovie({ danhSachPhim }) {
   return (
@@ -55,6 +56,7 @@ export default function ListMovie({ danhSachPhim }) {
           </div>
         </div>
       </div>
+      {/* <BookTicket /> */}
     </div>
   );
 }

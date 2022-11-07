@@ -7,17 +7,26 @@ import 'bootstrap/dist/css/bootstrap.css';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 import Collapse from 'react-bootstrap/Collapse';
+import {getUserDetails} from "../../../actions/userActions";
+import { useSelector } from "react-redux";
 
 export default function EditInformation() {
 
   const [open, setOpen] = useState(false);
 
+  const userDetails = useSelector((state) => state.userDetails)
+  //console.log(userDetails);
+  const { loading, error, user } = userDetails
+
   const info = JSON.parse(localStorage.getItem(userLogin));
-  console.log("Thông tin cập nhật bên phải: ", info);
+
+  //console.log("Thông tin cập nhật bên phải: ", info);
   let [account] = useState({
     email: info.email,
   });
-  console.log(account.email);
+  //console.log(info.email);
+
+  //console.log("Sau khi lấy thông tin qua email: ", user);
   let [state, setState] = useState({
     values: {
       fullname: "",
@@ -35,27 +44,38 @@ export default function EditInformation() {
     },
   });
   useEffect(() => {
-    qlyNguoiDung
-      .layThongTinTaiKhoanByEmail(account.email)
-      .then((res) => {
-        console.log("response: ",res.data);
-        setState({
-          values: res.data,
-          errors: {
-            fullname: "",
-            username: "",
-            email: "",
-            roles: "",
-            password: "",
-          },
-        });
-      })
-      .catch((err) => {
-        console.log(err.message);
-      });
-  }, [account]);
+    // qlyNguoiDung
+    //   .layThongTinTaiKhoanByEmail(account.email)
+    //   .then((res) => {
+    //     console.log("response: ",res.data);
+    //     setState({
+    //       values: res.data,
+    //       errors: {
+    //         fullname: "",
+    //         username: "",
+    //         email: "",
+    //         roles: "",
+    //         password: "",
+    //       },
+    //     });
+    //   })
+    //   .catch((err) => {
+    //     console.log(err.message);
+    //   });
+    getUserDetails(info.email);
+    setState({
+      values: user,
+      errors: {
+        fullname: "",
+        username: "",
+        email: "",
+        roles: "",
+        password: "",
+      },
+    });
+  }, [loading, user]);
 
-  console.log("state: ", state);
+  //console.log("state: ", state);
 
   const handleChangeInput = (event) => {
     var { value, name } = event.target;
@@ -164,7 +184,7 @@ export default function EditInformation() {
                   marginBottom:"1rem",
                 }}
               />
-              <span className="text-danger">{state.errors.username}</span>
+              {/* <span className="text-danger">{state.errors.user.username}</span> */}
             </div>
             <div className="form-group">
             <Form.Label>Password</Form.Label>
@@ -179,7 +199,7 @@ export default function EditInformation() {
                   marginBottom:"1rem",
                 }}
               />
-              <span className="text-danger">{state.errors.password}</span>
+              {/* <span className="text-danger">{state.errors.user.password}</span> */}
             </div>
             <div className="form-group">
             <Form.Label>Full name</Form.Label>
@@ -195,7 +215,7 @@ export default function EditInformation() {
                  
                 }}
               />
-              <span className="text-danger">{state.errors.fullname}</span>
+              {/* <span className="text-danger">{state.errors.user.fullname}</span> */}
             </div>
             <div className="form-group">
             <Form.Label>Email</Form.Label>
@@ -209,7 +229,7 @@ export default function EditInformation() {
                   marginBottom:"1rem",
                 }}
               />
-              <span className="text-danger">{state.errors.email}</span>
+              {/* <span className="text-danger">{state.errors.user.email}</span> */}
             </div>
             <div className="form-group">
               <Button

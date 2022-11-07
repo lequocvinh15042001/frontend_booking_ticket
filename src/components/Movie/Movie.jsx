@@ -1,24 +1,38 @@
 import React, { useState, useEffect } from "react";
 import "../Movie/Movie.scss";
-import { qLyPhimService } from "../../services/QuanLyPhimServices";
+//import { qLyPhimService } from "../../services/QuanLyPhimServices";
 import SpinnerLoading from "../SpinnerLoading/SpinnerLoading";
 import MovieItem from "../MovieItem/MovieItem";
+import { listMovies } from '../../actions/movieActions';
+import { useDispatch, useSelector } from "react-redux";
+
 
 export default function AllMovie() {
   let [danhSachPhim, setDanhSachPhim] = useState([]);
   let [loading, setLoading] = useState(true);
+  
+  const dispatch = useDispatch()
+
+  const movieList = useSelector((state)=> state.movieList.movies)
+
   useEffect(() => {
-    qLyPhimService
-      .layDanhSachPhim()
-      .then((result) => {
-        setDanhSachPhim(result.data);
-        console.log(result.data);
-        setLoading(false);
-      })
-      .catch((err) => {
-        console.log(err.response.data);
-      });
-  }, []);
+    // qLyPhimService
+    //   .layDanhSachPhim()
+    //   .then((result) => {
+    //     setDanhSachPhim(result.data);
+    //     console.log(result.data);
+    //     setLoading(false);
+    //   })
+    //   .catch((err) => {
+    //     console.log(err.response.data);
+    //   });
+    dispatch(listMovies())
+    setDanhSachPhim(movieList);
+    if(movieList){
+      setLoading(false);
+    }
+  }, [dispatch]);
+
   const [searchTerm, setSearchTerm] = useState("");
   const [danhSachPhimSearch, setDanhSachPhimSearch] = useState([]);
   const handleChange = (event) => {

@@ -11,6 +11,7 @@ export class QuanLyNguoiDung {
     });
   };
   dangKy = (thongTin) => {
+    console.log(thongTin);
     return axios({
       url: `${auth}/signup`,
       method: "POST",

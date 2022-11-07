@@ -1,7 +1,7 @@
 @import "../connect";
 
 .movie-card {
-  padding: spacing(0.8);
+  padding: 1em;
   .card-link {
     text-decoration: none;
     .card-content {
@@ -34,6 +34,7 @@
           .movie-name {
             @include Text($fs-2, $fw-regular);
             text-transform: capitalize;
+            color: #fff;
           }
           .group-id {
             color: $color-blue;

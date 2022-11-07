@@ -8,6 +8,8 @@ import { dangNhapAction } from "../../redux/actions/QuanLyNguoiDungActions";
 import useToggleValue from './../../hooks/useToggleValue';
 import swal from "sweetalert";
 import IconEyeToggle from "../Icons/IconEyeToggle";
+import { login } from '../../actions/userActions'
+
 const Login = (props) => {
   let { navigator } = props;
   const navigate = useNavigate();
@@ -33,31 +35,35 @@ const Login = (props) => {
   };
 
   const handleSubmit = (event) => {
-    event.preventDefault();
-    qlyNguoiDung
-      .dangNhap(user.values)
-      .then((res) => {
-        localStorage.setItem(userLogin, JSON.stringify(res.data));
-        console.log(res.data);
-        localStorage.setItem(token, res.data.accessToken);
-        dispatch(dangNhapAction(res.data.usernameOrEmail));
-        swal({
-          title: "Login Success!",
-          text: "Hi, " + res.data.username,
-          icon: "success",
-          button: "OK",
-        });
-        navigate("/home");
-      })
-      .catch((err) => {
-        console.log(err.response.data);
-        swal({
-          title: err.response.data.error,
-          text: "Incorrect username or password!",
-          icon: "error",
-          button: "OK",
-        });
-      });
+    // event.preventDefault();
+    // qlyNguoiDung
+    //   .dangNhap(user.values)
+    //   .then((res) => {
+    //     localStorage.setItem(userLogin, JSON.stringify(res.data));
+    //     console.log(res.data);
+    //     localStorage.setItem(token, res.data.accessToken);
+    //     dispatch(dangNhapAction(res.data.usernameOrEmail));
+    //     swal({
+    //       title: "Login Success!",
+    //       text: "Hi, " + res.data.username,
+    //       icon: "success",
+    //       button: "OK",
+    //     });
+    //     navigate("/home");
+    //   })
+    //   .catch((err) => {
+    //     console.log(err.response.data);
+    //     swal({
+    //       title: err.response.data.error,
+    //       text: "Incorrect username or password!",
+    //       icon: "error",
+    //       button: "OK",
+    //     });
+    //   });
+    event.preventDefault()
+    //dispatch(login(user.values.usernameOrEmail, user.values.password, navigate))
+    dispatch(login(user.values, navigate))
+
   };
   const { value: showPassword, handleToggleValue: handleTogglePassword } =
   useToggleValue(false);

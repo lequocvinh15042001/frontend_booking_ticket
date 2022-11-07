@@ -12,8 +12,13 @@ import { NavLink, Navigate } from "react-router-dom";
 import EditInformation from "./EditInformation/EditInformation";
 import { qlyNguoiDung } from "../../services/QuanLyNguoiDungServices";
 import { userLogin } from "../../config/setting";
+import { useDispatch, useSelector } from "react-redux";
+import { getUserDetails, updateUserProfile } from '../../actions/userActions';
+import { USER_UPDATE_PROFILE_RESET } from '../../constants/userConstants'
+
 export default function Information() {
   const info = JSON.parse(localStorage.getItem("userLogin"));
+  console.log("userLogin", info);
   let [thongTin, setThongTin] = useState([]);
   // useEffect(() => {
   //   qlyNguoiDung
@@ -22,28 +27,68 @@ export default function Information() {
   //       setThongTin(result.data);
   //     });
   // }, []);
+  const dispatch = useDispatch()
 
-    useEffect(() => {
-    qlyNguoiDung
-      .layThongTinTaiKhoanByEmail(info.email)
-      .then((result) => {
-        setThongTin(result.data);
-      });
-  }, []);
-  console.log("Đã lấy được thông tin người dùng từ API: ", thongTin);
-  // const renderAdmin = () => {
-  //   if (thongTin.roles.role === "ROLE_ADMIN") {
-  //     return (
-  //       <button className="btn btn-block btn__admin">
-  //         <NavLink className="admin__link" to="/dashboard">
-  //             Admin Page
-  //         </NavLink>
-  //       </button>
-  //     );
+  const userInfo = useSelector((state) => state.userLogin.userInfo)
+  console.log(userInfo);
+  
+  const userDetails = useSelector((state) => state.userDetails)
+  console.log(userDetails);
+  const { loading, error, user } = userDetails
+
+  const userUpdateProfile = useSelector((state) => state.userUpdateProfile)
+  const { success } = userUpdateProfile
+
+  useEffect(() => {
+    // if (!userInfo) {
+    //   history.push('/login')
+    // } else {
+    //   if (!user || !user.username || success) {
+    //     dispatch({ type: USER_UPDATE_PROFILE_RESET })
+    //     dispatch(getUserDetails('profile'))
+    //     dispatch(listMyOrders())
+    //   } else {
+    //     setName(user.username)
+    //     setEmail(user.email)
+    //   }
+    // }
+    dispatch(getUserDetails(userInfo.email))
+    setThongTin(user);
+  }, [dispatch])
+
+  // const submitHandler = (e) => {
+  //   e.preventDefault()
+  //   if (password !== confirmPassword) {
+  //     setMessage('Passwords do not match')
   //   } else {
-  //     return;
+  //     dispatch(updateUserProfile({ id: user._id, name, email, password }))
   //   }
-  // };
+  // }
+  //   useEffect(() => {
+  //   qlyNguoiDung
+  //     .layThongTinTaiKhoanByEmail(info.email)
+  //     .then((result) => {
+  //       setThongTin(result.data);
+  //     });
+
+  // }, []);
+  console.log("Đã lấy được thông tin người dùng từ API: ", thongTin);
+  const admin = info.roles[0];
+  //console.log("Amdin: ", admin);
+
+  const renderAdmin = () => {
+    if (admin === "ROLE_ADMIN") {
+      return (
+        <button className="btn btn-block btn__admin">
+          <NavLink className="admin__link" to="/dashboard">
+              Admin Page
+          </NavLink>
+        </button>
+      );
+    } else {
+      return;
+    }
+  };
 
   if (!localStorage.getItem("userLogin")) {
     return <Navigate to="/home" />;
@@ -55,7 +100,7 @@ export default function Information() {
         <div className="col-12 col-avt">
           <div className="img-avt p-5 text-center">
             {/* <img src="https://vnn-imgs-a1.vgcloud.vn/image1.ictnews.vn/_Files/2020/03/17/trend-avatar-1.jpg" alt="hinhanh" /> */}
-            <img src={thongTin.image} alt="hinhanh" />
+            <img src={user.image} alt="hinhanh" />
           </div>
           <div className="tableInfo">
             <div className="row">
@@ -69,7 +114,7 @@ export default function Information() {
                           Username:
                         </TableCell>
                         <TableCell>
-                          {thongTin.username}
+                          {user.username}
                         </TableCell>
                       </TableRow>
                       <TableRow>
@@ -77,7 +122,7 @@ export default function Information() {
                           Full name:
                         </TableCell>
                         <TableCell>
-                          {thongTin.fullname}
+                          {user.fullname}
                         </TableCell>
                       </TableRow>
                       <TableRow>
@@ -85,7 +130,7 @@ export default function Information() {
                           Email:
                         </TableCell>
                         <TableCell >
-                          {thongTin.email}
+                          {user.email}
                         </TableCell>
                       </TableRow>
                       {/* <TableRow>
@@ -99,11 +144,11 @@ export default function Information() {
                     </TableBody>
                   </Table>
                 </TableContainer>
-                {/* {renderAdmin()} */}
+                {renderAdmin()}
               </div>
               <div className="col-md-7 col-sm-12 col-right bg-dark">
                 <div id="accordion">
-                  <EditInformation />
+                  <EditInformation user={thongTin}/>
                   {/* <InfoTicketBooked thongTin={thongTin} /> */}
                 </div>
               </div>
