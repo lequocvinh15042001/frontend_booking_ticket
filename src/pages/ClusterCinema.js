@@ -4,7 +4,7 @@ import Footer from "../components/Footer/Footer";
 import Header from "../components/Header/Header";
 export default function ClusterCinema() {
   return <>
-  <Header/>
+  {/* <Header/> */}
   <CinemaSystem />
   <Footer/>
   </>;

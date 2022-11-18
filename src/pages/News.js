@@ -5,7 +5,7 @@ import Footer from "../components/Footer/Footer";
 
 export default function News() {
   return <>
-    <Header/>
+    {/* <Header/> */}
    <NewsComponent />
    <Footer/>
   </>;

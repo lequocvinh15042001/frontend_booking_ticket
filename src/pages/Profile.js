@@ -8,7 +8,7 @@ const Profile = (props) => {
     props.history.push("/");
   }
   return <>
-    <Header/>
+    {/* <Header/> */}
     <UserInformation />
     <Footer/>
   </>

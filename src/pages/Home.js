@@ -156,7 +156,7 @@ export default function Home() {
       ) : ( */}
         <Fragment>
           
-          <Header/>
+          {/* <Header/> */}
 
           <SearchBar posts={posts} setSearchResults={setSearchResults} />
           {/* <ListPage searchResults={searchResults} /> */}
