@@ -13,7 +13,8 @@ import { dangXuatAction } from "../../redux/actions/QuanLyNguoiDungActions";
 import { userLogin } from "../../config/setting";
 import Logo from "./../../assets/LeafSVG";
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { logout } from '../../actions/userActions';
+import { getCurrentUser, getUserDetails, logout } from '../../actions/userActions';
+import { useEffect } from "react";
 
 
 export default function Header(props) {
@@ -44,8 +45,14 @@ export default function Header(props) {
   const userLogin = useSelector((state) => state.userLogin.userInfo)
   console.log(userLogin);
 
-  const userAmin = useSelector((state) => state.userLogin.userInfo.roles[0])
-  console.log(userAmin);
+  const currentUserLogin = useSelector((state) => state.currentUser.currentUser)
+  console.log('currentUserLogin: ',currentUserLogin);
+
+  const userDetail = useSelector((state)=> state.userDetails)
+  console.log(userDetail);
+
+  // const userAmin = useSelector((state) => state.userLogin.userInfo.roles[0])
+  // console.log(userAmin);
 
   const dispatch = useDispatch();
 
@@ -56,13 +63,19 @@ export default function Header(props) {
   const logoutHandler = () => {
     dispatch(logout())
   }
+
+  useEffect(()=>{
+    dispatch(getCurrentUser())
+    dispatch(getUserDetails(currentUserLogin.username))
+  },[])
+
   const renderMenuControl = () => {
     // console.log(JSON.parse(localStorage.getItem(userLogin)).roles[0] === "ROLE_ADMIN");
     // if (
     //   JSON.parse(localStorage.getItem(userLogin)).roles[0].role === "ROLE_ADMIN"
     // ) {
       if (
-        userLogin.roles[0] === "ROLE_ADMIN"
+        userDetail?.roles[0] === "ROLE_ADMIN"
       ) {
       return (
         <MenuItem onClick={handleClose}>
@@ -80,7 +93,7 @@ export default function Header(props) {
     }
   };
   const renderLogin = () => {
-    if (userLogin) {
+    if (userDetail) {
       return (
         <Fragment>
           <div
@@ -92,7 +105,7 @@ export default function Header(props) {
             style={{ cursor: "pointer" }}
           >
             <img src="https://i.ibb.co/PCjW83Y/avt.png" alt="user" />
-            <span className="login__text">{userLogin.username}</span>
+            <span className="login__text">{currentUserLogin.username}</span>
           </div>
           <Popper
             open={open}

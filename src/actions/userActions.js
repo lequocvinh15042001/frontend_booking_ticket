@@ -1,5 +1,5 @@
 import axios from 'axios'
-import {auth, token, movie, user } from "../config/setting";
+import {auth, token, movie, users } from "../config/setting";
 import {
   USER_DETAILS_FAIL,
   USER_DETAILS_REQUEST,
@@ -25,6 +25,11 @@ import {
   USER_UPDATE_FAIL,
   USER_UPDATE_SUCCESS,
   USER_UPDATE_REQUEST,
+
+  CURRENT_USER_FAIL,
+  CURRENT_USER_SUCCESS,
+  CURRENT_USER_REQUEST,
+  CURRENT_USER_RESET,
 } from '../constants/userConstants'
 import { ORDER_LIST_MY_RESET } from '../constants/orderConstants'
 
@@ -118,7 +123,7 @@ console.log(user);
   }
 }
 
-export const getUserDetails = (email) => async (dispatch, getState) => {
+export const getUserDetails = (username) => async (dispatch, getState) => {
   try {
     dispatch({
       type: USER_DETAILS_REQUEST,
@@ -130,11 +135,12 @@ export const getUserDetails = (email) => async (dispatch, getState) => {
 
     const config = {
       headers: {
-        Authorization: `Bearer ${userInfo.token}`,
+        'Content-Type': 'application/json',
+        Authorization: `Bearer ${userInfo.accessToken}`,
       },
     }
 
-    const { data } = await axios.get(`http://localhost:8080/api/user/${email}`)
+    const { data } = await axios.get(`https://goldennew.azurewebsites.net/api/users/${username}`, config)
 
     dispatch({
       type: USER_DETAILS_SUCCESS,
@@ -172,7 +178,7 @@ export const updateUserProfile = (user) => async (dispatch, getState) => {
       },
     }
 
-    const { data } = await axios.put(`/api/users/profile`, user, config)
+    const { data } = await axios.put(`${users}/profile`, user, config)
 
     dispatch({
       type: USER_UPDATE_PROFILE_SUCCESS,
@@ -210,13 +216,13 @@ export const listUsers = () => async (dispatch, getState) => {
 
     const config = {
       headers: {
-        Authorization: `Bearer ${userInfo.token}`,
+        'Content-Type': 'application/json',
+        Authorization: `Bearer ${userInfo.accessToken}`,
       },
     }
     console.log("access token: ", config);
 
-    const { data } = await axios.get(`http://localhost:8080/api/user`)
-
+    const { data } = await axios.get(`https://goldennew.azurewebsites.net/api/user/getAll`, config)
     dispatch({
       type: USER_LIST_SUCCESS,
       payload: data,
@@ -252,7 +258,7 @@ export const deleteUser = (id) => async (dispatch, getState) => {
       },
     }
 
-    await axios.delete(`/api/users/${id}`, config)
+    await axios.delete(`${users}/${id}`, config)
 
     dispatch({ type: USER_DELETE_SUCCESS })
   } catch (error) {
@@ -287,7 +293,7 @@ export const updateUser = (user) => async (dispatch, getState) => {
       },
     }
 
-    const { data } = await axios.put(`/api/users/${user._id}`, user, config)
+    const { data } = await axios.put(`${users}/${user.id}`, user, config)
 
     dispatch({ type: USER_UPDATE_SUCCESS })
 
@@ -305,6 +311,44 @@ export const updateUser = (user) => async (dispatch, getState) => {
     dispatch({
       type: USER_UPDATE_FAIL,
       payload: message,
+    })
+  }
+}
+
+export const getCurrentUser = () => async (
+  dispatch, getState
+) => {
+  try {
+    dispatch({ type: CURRENT_USER_REQUEST })
+
+    const {
+      userLogin: { userInfo },
+    } = getState()
+
+    const config = {
+      headers: {
+        'Content-Type': 'application/json',
+        Authorization: `Bearer ${userInfo.accessToken}`,
+      },
+    }
+    console.log(userInfo, 'jsndjshad');
+    const { data } = await axios.get(
+      `${users}/me`, config
+    )
+    console.log(data);
+
+    dispatch({
+      type: CURRENT_USER_SUCCESS,
+      payload: data,
+    })
+    
+  } catch (error) {
+    dispatch({
+      type: CURRENT_USER_FAIL,
+      payload:
+        error.response && error.response.data.message
+          ? error.response.data.message
+          : error.message,
     })
   }
 }

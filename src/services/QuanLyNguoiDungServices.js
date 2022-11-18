@@ -1,5 +1,5 @@
 import axios from "axios";
-import {auth, token, movie, user } from "../config/setting";
+import {auth, token, movie, users } from "../config/setting";
 export class QuanLyNguoiDung {
   dangNhap = (userLogin) => {
     console.log(userLogin);
@@ -21,7 +21,7 @@ export class QuanLyNguoiDung {
   layThongTinTaiKhoanByEmail = (email) => {
     console.log("đã gửi email: ", email);
     return axios({
-      url: `${user}/${email}`,
+      url: `${users}/${email}`,
       method: "GET",
       data: email,
     });

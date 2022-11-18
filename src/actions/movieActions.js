@@ -37,7 +37,7 @@ export const listMovies = () => async (
     dispatch({ type: MOVIE_LIST_REQUEST })
 
     const { data } = await axios.get(
-      `http://localhost:8080/api/movies/showing`
+      `https://goldennew.azurewebsites.net/api/movies/showing`
     )
     console.log(data);
 
@@ -61,7 +61,7 @@ export const listMovieDetails = (id) => async (dispatch) => {
   try {
     dispatch({ type: MOVIE_DETAILS_REQUEST })
 
-    const { data } = await axios.get(`/api/movies/${id}`)
+    const { data } = await axios.get(`https://goldennew.azurewebsites.net/api/movies/${id}`)
 
     dispatch({
       type: MOVIE_DETAILS_SUCCESS,
@@ -90,11 +90,11 @@ export const deleteMovie = (id) => async (dispatch, getState) => {
 
     const config = {
       headers: {
-        Authorization: `Bearer ${userInfo.token}`,
+        Authorization: `Bearer ${userInfo.accessToken}`,
       },
     }
 
-    await axios.delete(`/api/movies/${id}`, config)
+    await axios.delete(`https://goldennew.azurewebsites.net/api/movies/${id}`)
 
     dispatch({
       type: MOVIE_DELETE_SUCCESS,
@@ -126,11 +126,11 @@ export const createMovie = () => async (dispatch, getState) => {
 
     const config = {
       headers: {
-        Authorization: `Bearer ${userInfo.token}`,
+        Authorization: `Bearer ${userInfo.accessToken}`,
       },
     }
 
-    const { data } = await axios.post(`/api/movies`, {}, config)
+    const { data } = await axios.post(`https://goldennew.azurewebsites.net/api/movies`, {}, config)
 
     dispatch({
       type: MOVIE_CREATE_SUCCESS,
@@ -169,7 +169,7 @@ export const updateMovie = (movie) => async (dispatch, getState) => {
     }
 
     const { data } = await axios.put(
-      `/api/movies/${movie._id}`,
+      `https://goldennew.azurewebsites.net/api/movies/${movie._id}`,
       movie,
       config
     )
@@ -214,7 +214,7 @@ export const createMovieReview = (movieId, review) => async (
       },
     }
 
-    await axios.post(`/api/movies/${movieId}/reviews`, review, config)
+    await axios.post(`https://goldennew.azurewebsites.net/api/movies/${movieId}/reviews`, review, config)
 
     dispatch({
       type: MOVIE_CREATE_REVIEW_SUCCESS,
@@ -238,7 +238,7 @@ export const listTopMovies = () => async (dispatch) => {
   try {
     dispatch({ type: MOVIE_TOP_REQUEST })
 
-    const { data } = await axios.get(`/api/movies/top`)
+    const { data } = await axios.get(`https://goldennew.azurewebsites.net/api/movies/top`)
 
     dispatch({
       type: MOVIE_TOP_SUCCESS,

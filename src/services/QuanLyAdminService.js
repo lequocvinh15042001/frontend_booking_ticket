@@ -1,9 +1,9 @@
 import axios from "axios";
-import { token, groupID, user, movie } from "../config/setting";
+import { token, groupID, users, movie } from "../config/setting";
 export class QuanLyAdmin {
   layDanhSachNguoiDung = () => {
     return axios({
-      url: `${user}`,
+      url: `${users}`,
       method: "GET",
     });
   };
@@ -20,7 +20,7 @@ export class QuanLyAdmin {
   capNhatThongTinNguoiDung = (thongTinNguoiDung) => {
     console.log("Thông tin cần chỉnh sửa: ", thongTinNguoiDung);
     return axios({
-      url: `${user}`,
+      url: `${users}`,
       method: "PUT",
       data: thongTinNguoiDung,
       headers: {
@@ -30,7 +30,7 @@ export class QuanLyAdmin {
   };
   xoaNguoiDung = (taiKhoan) => {
     return axios({
-      url: `${user}/${taiKhoan}`,
+      url: `${users}/${taiKhoan}`,
       method: "DELETE",
       headers: {
         Authorization: "Bearer " + localStorage.getItem(token),

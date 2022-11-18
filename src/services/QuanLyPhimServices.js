@@ -10,7 +10,7 @@ export class QuanLyPhimServices {
   };
   layThongTinPhim = (maPhim) => {
     return axios({
-      url: `${movie}/details?movieId=${maPhim}`,
+      url: `${movie}/details/${maPhim}`,
       method: "GET",
     });
   };

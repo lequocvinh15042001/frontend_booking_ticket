@@ -50,7 +50,7 @@ const DetailMovie = () => {
   //nào xong API get details phim rồi thì thay movieDetail = phim
   return (
     <Fragment>
-      {/* <Header/> */}
+      <Header/>
       {loading ? (
         <SpinnerLoading />
       ) : (

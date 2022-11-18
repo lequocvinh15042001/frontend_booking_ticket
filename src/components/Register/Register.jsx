@@ -86,7 +86,7 @@ export default class Register extends Component {
       .catch((err) => {
         console.log(err);
         swal({
-          title: err.response.data.message,
+          title: err.response?.data?.message,
           text: "Fill in the information again!",
           icon: "warning",
           button: "OK",

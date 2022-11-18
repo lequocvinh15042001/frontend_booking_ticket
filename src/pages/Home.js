@@ -114,8 +114,8 @@ export default function Home() {
 
   //const movieList = useSelector((state) => state.movieList)
   const movieList = useSelector((state)=> state.movieList.movies)
-  const { error, movies } = movieList
-  //console.log(movieList);
+  // const { movies } = movieList
+  console.log(movieList);
   
   useEffect(() => {
     // qLyPhimService
@@ -133,7 +133,7 @@ export default function Home() {
     //   });
     dispatch(listMovies())
     setDanhSachPhim(movieList);
-  },[dispatch]);
+  },[]);
   //console.log(movieList);
 
 
@@ -156,7 +156,7 @@ export default function Home() {
       ) : ( */}
         <Fragment>
           
-          {/* <Header/> */}
+          <Header/>
 
           <SearchBar posts={posts} setSearchResults={setSearchResults} />
           {/* <ListPage searchResults={searchResults} /> */}
@@ -167,9 +167,9 @@ export default function Home() {
           
           <ListMovie danhSachPhim={danhSachPhim} />
 
-          <ScrollAnimation animateIn="fadeIn">
+          {/* <ScrollAnimation animateIn="fadeIn">
             <ShowTimeHome />
-          </ScrollAnimation>
+          </ScrollAnimation> */}
 
           <ScrollAnimation animateIn="zoomIn">
             <NewsComponent />
